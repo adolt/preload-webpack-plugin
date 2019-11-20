@@ -86,7 +86,9 @@ class PreloadPlugin {
         // On the off chance that we have an 'href' attribute with a
         // cross-origin URL, set crossOrigin on the <link> to trigger CORS mode.
         // when preloading fonts. (Non-CORS fonts can't be used.)
-        if (attributes.as === 'font') {
+
+        // script 也加 crossorigin
+        if (attributes.as === 'font' || attributes.as === 'script') {
           attributes.crossorigin = 'anonymous';
         }
       }
